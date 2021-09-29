@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>
+    <%= htmlWebpackPlugin.options.title + htmlWebpackPlugin.options.mode %>
+  </title>
+  <!-- 导入 highlight.js 配套的样式 -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.6.0/styles/default.min.css" />
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+  <!-- 导入一下 highlight.js 的库文件，就会为 window 全局对象挂载 hljs 成员 -->
+
+  <!-- 如果当前是 development 开发模式，则不需要渲染第三方的 script 标签 -->
+  <!-- 如果当前是 production 发布模式，则必须渲染第三方的 script 标签 -->
+
+  <% if( htmlWebpackPlugin.options.mode==='production' ) { %>
+    <script src="https://cdn.staticfile.org/highlight.js/10.6.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router@3.2.0/dist/vue-router.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vuex@3.4.0/dist/vuex.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.21.1/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vant@2.12.12/lib/vant.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.5/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@4.0.0/dist/socket.io.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popmotion@9.3.5/dist/popmotion.min.js"></script>
+    <% } %>
+</body>
+
+</html>
